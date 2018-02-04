@@ -1,0 +1,172 @@
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */{
+  margin: 0;
+  padding: 0;
+}
+
+/** 设置默认字体 **/
+body,
+button, input, select, textarea /* for ie */{
+  font-family: -apple-system,"Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+h1, h2, h3, h4, h5, h6{ font-size: 100%; }
+address, cite, dfn, em, var{ font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp{ font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+
+/** 重置列表元素 **/
+ul, ol,li{ list-style: none; }
+
+/** 重置文本格式元素 **/
+a{ text-decoration: none;  cursor: pointer;color: inherit; }
+a:hover,a:focus{ text-decoration: none; }
+
+article,p {
+  word-break: break-all;
+}
+
+  /*去掉IE的虚线框*/
+a:active, a:focus, a:visited{
+  border:none;
+  outline:none;
+  text-decoration: none;
+  color: inherit;
+}
+
+/** 重置表单元素 **/
+fieldset, img{ border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea{ font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+
+/** 重置表格元素 **/
+table{ border-collapse: collapse; border-spacing: 0; }
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html{
+  width: 100%;
+  height: 100%;
+}
+body{
+  width: 100%;
+  height: 100%;
+  color: #333;
+  line-height: 1.42857143;
+  font-size: 14px;
+}
+
+/*----------以下自定义------------*/
+
+body{
+  margin:0 auto;
+  -webkit-text-size-adjust:none;
+  text-size-adjust:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.icon{
+  display: inline-block;
+}
+
+/*单行省略号，带宽度*/
+.ellipsis(@width){
+  width: @width;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*-----自定义滚动条----*/
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  background-color: rgba(0, 0, 0, .5);
+  transition: all .3s;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgba(0, 0, 0, .6);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/*单行省略号*/
+.ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tab-focus() {
+  // Default
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+/*兼容透明度设置*/
+.opacity(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+/*禁用选择文字*/
+.user-select(@select) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select; // IE10+
+  user-select: @select;
+}
+.cm-hide{
+  display: none !important;
+}
+.cm-show{
+  display: block !important;
+}
+
+
+.no-data-tips{
+  display: none;
+  padding: 0.2rem;
+  font-size: 0.25rem;
+  color: #666;
+  text-align: center;
+  &.active{
+    display: block;
+  }
+}
+
+/*复用图标*/
+.home-icon{
+  display: inline-block;
+  background: url("../image/common/home-icon.png") no-repeat;
+  width: 22px;
+  height: 20px;
+  background-size: cover;
+}
+.cur-icon{
+  display: inline-block;
+  background: url("../image/common/cur-icon.png") no-repeat;
+  width: 12px;
+  height: 50px;
+  background-size: cover;
+}

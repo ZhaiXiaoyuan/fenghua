@@ -1,0 +1,443 @@
+/** 清除内外边距 **/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+/** 设置默认字体 **/
+body,
+button,
+input,
+select,
+textarea {
+  font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+/* 将斜体扶正 */
+code,
+kbd,
+pre,
+samp {
+  font-family: courier new, courier, monospace;
+}
+/* 统一等宽字体 */
+/** 重置列表元素 **/
+ul,
+ol,
+li {
+  list-style: none;
+}
+/** 重置文本格式元素 **/
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+article,
+p {
+  word-break: break-all;
+}
+/*去掉IE的虚线框*/
+a:active,
+a:focus,
+a:visited {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+/** 重置表单元素 **/
+fieldset,
+img {
+  border: 0;
+}
+/* img 搭车：让链接里的 img 无边框 */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+/* 使得表单元素在 ie 下能继承字体大小 */
+/** 重置表格元素 **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  color: #333;
+  line-height: 1.42857143;
+  font-size: 14px;
+}
+/*----------以下自定义------------*/
+body {
+  margin: 0 auto;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+      text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.icon {
+  display: inline-block;
+}
+/*单行省略号，带宽度*/
+/*-----自定义滚动条----*/
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+/*单行省略号*/
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*兼容透明度设置*/
+/*禁用选择文字*/
+.cm-hide {
+  display: none !important;
+}
+.cm-show {
+  display: block !important;
+}
+.no-data-tips {
+  display: none;
+  padding: 0.2rem;
+  font-size: 0.25rem;
+  color: #666;
+  text-align: center;
+}
+.no-data-tips.active {
+  display: block;
+}
+/*复用图标*/
+.home-icon {
+  display: inline-block;
+  background: url("../image/common/home-icon.png") no-repeat;
+  width: 22px;
+  height: 20px;
+  background-size: cover;
+}
+.cur-icon {
+  display: inline-block;
+  background: url("../image/common/cur-icon.png") no-repeat;
+  width: 12px;
+  height: 50px;
+  background-size: cover;
+}
+.index-page {
+  background: #f1f8f8;
+}
+.index-page .header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+}
+.index-page .header .logo-icon {
+  display: inline-block;
+  background: url("../image/common/logo.png") no-repeat;
+  width: 271px;
+  height: 100px;
+  background-size: cover;
+}
+.index-page .left-nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 220px;
+  height: 100%;
+  background: #fff;
+  padding-top: 100px;
+  border-right: 1px solid #e5e5e5;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.index-page .left-nav .page-link li {
+  width: 100%;
+  height: 68px;
+}
+.index-page .left-nav .page-link li a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 10px 0px 35px;
+}
+.index-page .left-nav .page-link li a span {
+  padding-left: 8px;
+  font-size: 20px;
+  color: #56ca98;
+  font-family: '宋体';
+  line-height: normal;
+  /*  font-weight: bold;*/
+}
+.index-page .left-nav .wait-list {
+  height: 100%;
+}
+.index-page .left-nav .wait-list .list-hd {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  background: #eefaf4;
+  padding: 0px 10px 0px 65px;
+  font-size: 16px;
+  color: #90d8b9;
+}
+.index-page .left-nav .wait-list .list-hd .icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.index-page .left-nav .wait-list .list-bd {
+  padding-bottom: 200px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.index-page .left-nav .wait-list .list-bd .list-win {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.index-page .left-nav .wait-list .list-bd ul li {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  border-bottom: 1px solid #e5e5e5;
+}
+.index-page .entry-panel {
+  width: 100%;
+  padding: 100px 10px 50px 220px;
+}
+.index-page .entry-panel .entry-list {
+  padding: 20px;
+  overflow: hidden;
+}
+.index-page .entry-panel .entry-list li {
+  margin: 20px;
+  float: left;
+  width: 30%;
+  min-width: 320px;
+  background: #fff;
+}
+.index-page .entry-panel .entry-list li .entry-hd {
+  height: 72px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.index-page .entry-panel .entry-list li .entry-hd .index {
+  font-size: 20px;
+  color: #56ca98;
+}
+.index-page .entry-panel .entry-list li .entry-hd .close-btn {
+  font-size: 30px;
+  color: #56ca98;
+  cursor: pointer;
+}
+.index-page .entry-panel .entry-list li .entry-bd {
+  padding: 0px 30px;
+}
+.index-page .entry-panel .entry-list li .entry-bd .info {
+  padding: 0px 20px 20px 20px;
+  font-size: 16px;
+  color: #666;
+  line-height: 28px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.index-page .entry-panel .entry-list li .entry-bd .progress-wrap {
+  padding: 20px;
+}
+.index-page .entry-panel .entry-list li .entry-bd .progress {
+  font-size: 16px;
+  color: #56ca98;
+  overflow: hidden;
+}
+.index-page .entry-panel .entry-list li .entry-bd .progress .label {
+  float: left;
+}
+.index-page .entry-panel .entry-list li .entry-bd .progress .time {
+  float: right;
+}
+.index-page .entry-panel .entry-list li .entry-bd .progress .line {
+  float: left;
+  width: 100%;
+  margin-top: 8px;
+  height: 20px;
+  background: #eefaf4;
+}
+.index-page .entry-panel .entry-list li .entry-bd .progress .line > div {
+  display: inline-block;
+  height: 100%;
+  background: #56ca98;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle {
+  position: relative;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .handle-btn {
+  float: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid #56ca98;
+  background: #fff;
+  cursor: pointer;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .handle-btn.active {
+  background: #56ca98;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .handle-btn + .handle-btn {
+  margin-left: 35px;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .disable-btn .icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: #56ca98;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .disable-btn.active .icon {
+  background: #fff;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .call-btn .icon {
+  display: inline-block;
+  background: url("../image/common/phone-icon.png") no-repeat;
+  width: 29px;
+  height: 30px;
+  background-size: cover;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .call-btn.active .icon {
+  display: inline-block;
+  background: url("../image/common/phone-icon-active.png") no-repeat;
+  width: 29px;
+  height: 30px;
+  background-size: cover;
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .status {
+  position: absolute;
+  right: 0px;
+  bottom: 20px;
+  padding: 1px 10px;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 2px;
+  background: #ccc;
+  font-family: '宋体';
+}
+.index-page .entry-panel .entry-list li .entry-bd .handle .status.active {
+  background: #56ca98;
+}
+@media screen and (max-width: 1366px) {
+  .index-page .entry-panel .entry-list li {
+    margin: 15px;
+  }
+}
+.index-page .add-btn {
+  position: fixed;
+  z-index: 5;
+  right: 38px;
+  bottom: 38px;
+  background: url("../image/common/add-icon.png") no-repeat;
+  width: 92px;
+  height: 92px;
+  cursor: pointer;
+}

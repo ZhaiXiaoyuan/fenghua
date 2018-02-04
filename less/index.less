@@ -1,0 +1,244 @@
+.index-page{
+  background: #f1f8f8;
+  .header{
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 2;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #fff;
+    .logo-icon{
+      display: inline-block;
+      background: url("../image/common/logo.png") no-repeat;
+      width: 271px;
+      height: 100px;
+      background-size: cover;
+    }
+  }
+  .left-nav{
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 1;
+    width: 220px;
+    height: 100%;
+    background: #fff;
+    padding-top: 100px;
+    border-right: 1px solid #e5e5e5;
+    box-shadow: 0px 2px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    .page-link{
+      li{
+        width: 100%;
+        height: 68px;
+        a{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding: 0px 10px 0px 35px;
+          span{
+            padding-left: 8px;
+            font-size: 20px;
+            color: #56ca98;
+            font-family: '宋体';
+            line-height: normal;
+          /*  font-weight: bold;*/
+          }
+        }
+      }
+    }
+    .wait-list{
+      height: 100%;
+      .list-hd{
+        position: relative;
+        height: 50px;
+        line-height: 50px;
+        background: #eefaf4;
+        padding: 0px 10px 0px 65px;
+        .icon{
+          position: absolute;
+          top:0px;
+          left: 0px;
+        }
+        font-size: 16px;
+        color: #90d8b9;
+      }
+      .list-bd{
+        padding-bottom: 200px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .list-win{
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+        }
+        ul{
+          li{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            border-bottom: 1px solid #e5e5e5;
+          }
+        }
+      }
+    }
+  }
+  .entry-panel{
+    width: 100%;
+    padding: 100px 10px 50px 220px;
+    .entry-list{
+      padding: 20px;
+      overflow: hidden;
+      li{
+        margin: 20px;
+        float: left;
+        width: 30%;
+        min-width: 320px;
+        background: #fff;
+        .entry-hd{
+          height: 72px;
+          display: flex;
+          padding: 0px 30px;
+          align-items: center;
+          justify-content: space-between;
+          .index{
+            font-size: 20px;
+            color: #56ca98;
+          }
+          .close-btn{
+            font-size: 30px;
+            color: #56ca98;
+            cursor: pointer;
+          }
+        }
+        .entry-bd{
+          padding: 0px 30px;
+          .info{
+            padding: 0px 20px 20px 20px;
+            font-size: 16px;
+            color: #666;
+            line-height: 28px;
+            border-bottom: 1px solid #e5e5e5;
+          }
+          .progress-wrap{
+            padding: 20px;
+          }
+          .progress{
+            font-size: 16px;
+            color: #56ca98;
+            overflow: hidden;
+            .label{
+              float: left;
+            }
+            .time{
+              float: right;
+            }
+            .line{
+              float: left;
+              width: 100%;
+              margin-top: 8px;
+              height: 20px;
+              background: #eefaf4;
+              >div{
+                display: inline-block;
+                height: 100%;
+                background: #56ca98;
+              }
+            }
+          }
+          .handle{
+            position: relative;
+            padding-bottom: 20px;
+            overflow: hidden;
+            .handle-btn{
+              float: left;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              border:1px solid #56ca98;
+              background: #fff;
+              cursor: pointer;
+              &.active{
+                background: #56ca98;
+              }
+              &+.handle-btn{
+                margin-left: 35px;
+              }
+            }
+            .disable-btn{
+              .icon{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                background: #56ca98;
+              }
+              &.active{
+                .icon{
+                  background: #fff;
+                }
+              }
+            }
+            .call-btn{
+              .icon{
+                display: inline-block;
+                background: url("../image/common/phone-icon.png") no-repeat;
+                width: 29px;
+                height: 30px;
+                background-size: cover;
+              }
+              &.active{
+                .icon{
+                  display: inline-block;
+                  background: url("../image/common/phone-icon-active.png") no-repeat;
+                  width: 29px;
+                  height: 30px;
+                  background-size: cover;
+                }
+              }
+            }
+            .status{
+              position: absolute;
+              right: 0px;
+              bottom: 20px;
+              padding: 1px 10px;
+              display: inline-block;
+              font-size: 20px;
+              color: #fff;
+              border-radius: 2px;
+              background: #ccc;
+              font-family: '宋体';
+              &.active{
+                background: #56ca98;
+              }
+            }
+          }
+        }
+      }
+      @media screen and (max-width: 1366px){
+        li{
+          margin: 15px;
+        }
+      }
+    }
+  }
+  .add-btn{
+    position: fixed;
+    z-index: 5;
+    right: 38px;
+    bottom: 38px;
+    background: url("../image/common/add-icon.png") no-repeat;
+    width: 92px;
+    height: 92px;
+    cursor: pointer;
+  }
+}
