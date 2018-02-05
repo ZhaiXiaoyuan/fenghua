@@ -297,7 +297,7 @@ body {
   margin: 20px;
   float: left;
   width: 30%;
-  min-width: 320px;
+  min-width: 330px;
   background: #fff;
 }
 .index-page .entry-panel .entry-list li .entry-hd {
@@ -315,7 +315,7 @@ body {
 }
 .index-page .entry-panel .entry-list li .entry-hd .index {
   font-size: 20px;
-  color: #56ca98;
+  color: #999;
 }
 .index-page .entry-panel .entry-list li .entry-hd .close-btn {
   font-size: 30px;
@@ -337,7 +337,7 @@ body {
 }
 .index-page .entry-panel .entry-list li .entry-bd .progress {
   font-size: 16px;
-  color: #56ca98;
+  color: #999;
   overflow: hidden;
 }
 .index-page .entry-panel .entry-list li .entry-bd .progress .label {
@@ -351,10 +351,10 @@ body {
   width: 100%;
   margin-top: 8px;
   height: 20px;
-  background: #eefaf4;
+  background: #f5f5f5;
 }
 .index-page .entry-panel .entry-list li .entry-bd .progress .line > div {
-  display: inline-block;
+  display: none;
   height: 100%;
   background: #56ca98;
 }
@@ -387,14 +387,14 @@ body {
 .index-page .entry-panel .entry-list li .entry-bd .handle .handle-btn + .handle-btn {
   margin-left: 35px;
 }
-.index-page .entry-panel .entry-list li .entry-bd .handle .disable-btn .icon {
+.index-page .entry-panel .entry-list li .entry-bd .handle .start-btn .icon {
   display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 2px;
   background: #56ca98;
 }
-.index-page .entry-panel .entry-list li .entry-bd .handle .disable-btn.active .icon {
+.index-page .entry-panel .entry-list li .entry-bd .handle .start-btn.active .icon {
   background: #fff;
 }
 .index-page .entry-panel .entry-list li .entry-bd .handle .call-btn .icon {
@@ -423,7 +423,19 @@ body {
   background: #ccc;
   font-family: '宋体';
 }
-.index-page .entry-panel .entry-list li .entry-bd .handle .status.active {
+.index-page .entry-panel .entry-list li.active .entry-hd .index {
+  color: #56ca98;
+}
+.index-page .entry-panel .entry-list li.active .entry-bd .progress {
+  color: #56ca98;
+}
+.index-page .entry-panel .entry-list li.active .entry-bd .progress .line {
+  background: #eefaf4;
+}
+.index-page .entry-panel .entry-list li.active .entry-bd .progress .line > div {
+  display: inline-block;
+}
+.index-page .entry-panel .entry-list li.active .entry-bd .handle .status {
   background: #56ca98;
 }
 @media screen and (max-width: 1366px) {
@@ -440,4 +452,58 @@ body {
   width: 92px;
   height: 92px;
   cursor: pointer;
+}
+.index-page .add-modal {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.index-page .add-modal .mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0,0,0,0.6);*/
+}
+.index-page .add-modal .modal-content {
+  position: fixed;
+  z-index: 101;
+  width: 598px;
+  height: 540px;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0px 4px 20px rgba(86, 202, 152, 0.3);
+}
+.index-page .add-modal .modal-body {
+  padding: 30px 50px;
+}
+.index-page .add-modal .modal-body .input-row {
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+}
+.index-page .add-modal .modal-body .input-row .field {
+  float: left;
+  display: inline-block;
+  width: 110px;
+  text-align: right;
+  color: #666;
+}
+.index-page .add-modal .modal-body .input-row input {
+  margin-left: 5px;
+  height: 100%;
+  width: 320px;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+}
+.index-page .add-modal .modal-body .input-row + .input-row {
+  margin-top: 15px;
 }

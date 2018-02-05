@@ -10,7 +10,11 @@ $(function () {
             dataType:'json',
             data: data,
             success: function (result) {
-                result.message=JSON.parse(result.message);
+                try{
+                    result.message=JSON.parse(result.message);
+                }catch(e){
+
+                }
                 if(result.code=='430000'){
 
                 }else{
@@ -48,6 +52,18 @@ $(function () {
         //查询任务列表
         getTaskList:function (data,callback) {
             sendRequest(basicUrl+'/fhwhs/task/list','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //设置任务状态
+        setTaskStaus:function (data,callback) {
+            sendRequest(basicUrl+'/fhwhs/task/usedev','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //获取设备列表
+        getDeviceList:function (data,callback) {
+            sendRequest(basicUrl+'/fhwhs/task/devs','POST',data,function (resp) {
                 callback&&callback(resp);
             });
         }
