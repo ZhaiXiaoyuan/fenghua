@@ -56,7 +56,7 @@ $(function () {
             });
         },
         //设置任务状态
-        setTaskStaus:function (data,callback) {
+        setTaskStatus:function (data,callback) {
             sendRequest(basicUrl+'/fhwhs/task/usedev','POST',data,function (resp) {
                 callback&&callback(resp);
             });

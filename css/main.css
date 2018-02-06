@@ -141,7 +141,6 @@ body {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: all .3s;
   transition: all .3s;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -167,6 +166,10 @@ body {
 }
 .cm-show {
   display: block !important;
+}
+.cm-disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 .no-data-tips {
   display: none;
