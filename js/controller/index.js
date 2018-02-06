@@ -40,7 +40,7 @@ $(function () {
                 '<p>年龄：'+item.age+'</p>' +
                 '<p>身份证：'+item.idno+'</p>' +
                 '<p>处方：'+item.prescription+'</p>' +
-                '<p>雾化量：'+item.quantityamt+'</p>' +
+                '<p>雾化量：'+item.quantityamt+'cc</p>' +
                 '<p>开始时间：'+(item.startedAt&&item.startedAt!=''?item.startedAt:'--:--')+'</p>' +
                 '</div>' +
                 '<div class="progress-wrap">' +
