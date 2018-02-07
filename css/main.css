@@ -153,6 +153,22 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #999;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #999;
+}
 /*单行省略号*/
 .ellipsis {
   overflow: hidden;
@@ -173,8 +189,8 @@ body {
 }
 .no-data-tips {
   display: none;
-  padding: 0.2rem;
-  font-size: 0.25rem;
+  padding: 10px;
+  font-size: 14px;
   color: #666;
   text-align: center;
 }
@@ -195,6 +211,87 @@ body {
   width: 12px;
   height: 50px;
   background-size: cover;
+}
+/*操作提示*/
+.operation-feedback-mask {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  top: 0px;
+  left: 0px;
+}
+.operation-feedback {
+  display: inline-block;
+  padding: 20px 10px;
+  min-width: 200px;
+  max-width: 300px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  bottom: 50%;
+  -webkit-transform: translate3d(-50%, 50%, 0);
+  transform: translate3d(-50%, 50%, 0);
+  border-radius: 5px;
+}
+.operation-feedback .icon {
+  display: none;
+  width: 48px;
+  height: 48px;
+}
+@-webkit-keyframes loading-animate {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+@keyframes loading-animate {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 360deg);
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+.operation-feedback .loading-icon {
+  display: inline-block;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+  background-size: 100% 100%;
+  -webkit-animation: loading-animate 1s steps(12, end) infinite;
+  animation: loading-animate 1s steps(12, end) infinite;
+}
+.operation-feedback .complete-icon {
+  display: inline-block;
+  background: url("../image/common/handle-success-icon.png") no-repeat;
+  background-size: 100% 100%;
+}
+.operation-feedback .clear-icon {
+  display: inline-block;
+  background: url("../image/common/clear-icon.png") no-repeat;
+  background-size: 100% 100%;
+}
+.operation-feedback .warn-icon {
+  display: inline-block;
+  background: url("../image/common/warn-icon.png") no-repeat;
+  background-size: 100% 100%;
+}
+.operation-feedback .text {
+  padding-top: 5px;
+  margin: 0px;
+  position: relative;
+  font-size: 16px;
+  color: #fff;
+  text-align: center !important;
+  /*word-break: keep-all;*/
 }
 .index-page {
   background: #f1f8f8;
@@ -335,6 +432,24 @@ body {
   line-height: 28px;
   border-bottom: 1px solid #e5e5e5;
 }
+.index-page .entry-panel .entry-list li .entry-bd .info p {
+  position: relative;
+}
+.index-page .entry-panel .entry-list li .entry-bd .info .status {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 1px 10px;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 2px;
+  background: #ccc;
+  font-family: '宋体';
+}
+.index-page .entry-panel .entry-list li .entry-bd .info .status.active {
+  background: #56ca98;
+}
 .index-page .entry-panel .entry-list li .entry-bd .progress-wrap {
   padding: 20px;
 }
@@ -474,7 +589,7 @@ body {
   position: fixed;
   z-index: 101;
   width: 598px;
-  height: 540px;
+  height: 580px;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -506,7 +621,30 @@ body {
   font-size: 16px;
   border: none;
   border-bottom: 1px solid #e5e5e5;
+  outline: none;
 }
 .index-page .add-modal .modal-body .input-row + .input-row {
   margin-top: 15px;
+}
+.index-page .add-modal .modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 35px 55px 0px 55px;
+}
+.index-page .add-modal .modal-footer .handle-btn {
+  width: 180px;
+  height: 50px;
+  border: 1px solid #56ca98;
+  text-align: center;
+  line-height: 50px;
+  color: #56ca98;
+  font-size: 18px;
+  cursor: pointer;
+}
+.index-page .add-modal .modal-footer .cancel-btn {
+  border: none;
 }

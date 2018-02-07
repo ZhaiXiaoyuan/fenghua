@@ -18,7 +18,7 @@ $(function () {
                 if(result.code=='430000'){
 
                 }else{
-                    alert(result.message);
+                   /* alert(result.message);*/
                 }
                 callback&&callback(result);
             },
@@ -66,7 +66,19 @@ $(function () {
             sendRequest(basicUrl+'/fhwhs/task/devs','POST',data,function (resp) {
                 callback&&callback(resp);
             });
-        }
+        },
+        //护士站呼叫
+        callNurse:function (data,callback) {
+            sendRequest(basicUrl+'/fhwhs/task/call','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //新增任务
+        addTask:function (data,callback) {
+            sendRequest(basicUrl+'/fhwhs/task/add','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
         
     }
 })

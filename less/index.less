@@ -125,6 +125,24 @@
             color: #666;
             line-height: 28px;
             border-bottom: 1px solid #e5e5e5;
+            p{
+              position: relative;
+            }
+            .status{
+              position: absolute;
+              top:0px;
+              right: 0px;
+              padding: 1px 10px;
+              display: inline-block;
+              font-size: 20px;
+              color: #fff;
+              border-radius: 2px;
+              background: #ccc;
+              font-family: '宋体';
+              &.active{
+                background: #56ca98;
+              }
+            }
           }
           .progress-wrap{
             padding: 20px;
@@ -281,7 +299,7 @@
       position: fixed;
       z-index: 101;
       width: 598px;
-      height: 540px;
+      height: 580px;
       top:0px;
       bottom: 0px;
       left: 0px;
@@ -314,6 +332,7 @@
           font-size: 16px;
           border: none;
           border-bottom: 1px solid #e5e5e5;
+          outline: none;
         }
         &+.input-row{
           margin-top: 15px;
@@ -321,7 +340,22 @@
       }
     }
     .modal-footer{
-
+      display: flex;
+      justify-content: space-between;
+      padding: 35px 55px 0px 55px;
+      .handle-btn{
+        width: 180px;
+        height: 50px;
+        border:1px solid #56ca98;
+        text-align: center;
+        line-height: 50px;
+        color: #56ca98;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .cancel-btn{
+        border: none;
+      }
     }
   }
 }
