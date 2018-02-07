@@ -141,7 +141,6 @@ body {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: all .3s;
   transition: all .3s;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -432,6 +431,24 @@ body {
   color: #666;
   line-height: 28px;
   border-bottom: 1px solid #e5e5e5;
+}
+.index-page .entry-panel .entry-list li .entry-bd .info p {
+  position: relative;
+}
+.index-page .entry-panel .entry-list li .entry-bd .info .status {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 1px 10px;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 2px;
+  background: #ccc;
+  font-family: '宋体';
+}
+.index-page .entry-panel .entry-list li .entry-bd .info .status.active {
+  background: #56ca98;
 }
 .index-page .entry-panel .entry-list li .entry-bd .progress-wrap {
   padding: 20px;

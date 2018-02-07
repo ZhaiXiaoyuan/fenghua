@@ -125,6 +125,24 @@
             color: #666;
             line-height: 28px;
             border-bottom: 1px solid #e5e5e5;
+            p{
+              position: relative;
+            }
+            .status{
+              position: absolute;
+              top:0px;
+              right: 0px;
+              padding: 1px 10px;
+              display: inline-block;
+              font-size: 20px;
+              color: #fff;
+              border-radius: 2px;
+              background: #ccc;
+              font-family: '宋体';
+              &.active{
+                background: #56ca98;
+              }
+            }
           }
           .progress-wrap{
             padding: 20px;

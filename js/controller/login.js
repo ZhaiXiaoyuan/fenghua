@@ -18,7 +18,7 @@ $(function () {
             if(resp.status=='success'){
                 fb.setOptions({type:'complete',text:'登录成功'});
                 utils.setCookie('userInfo',JSON.stringify(resp.message),7);
-                window.location.href='/index.html';
+                window.location.href='index.html';
             }else{
                 fb.setOptions({type:'warn',text:resp.message});
             }

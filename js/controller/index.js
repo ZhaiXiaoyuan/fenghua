@@ -4,7 +4,8 @@
 $(function () {
     var userInfo=utils.getCookie('userInfo')?JSON.parse(utils.getCookie('userInfo')):null;
     if(!userInfo){
-        window.location.href='/login.html'
+        window.location.href='login.html';
+        return;
     }
    /* console.log("userInfo:",userInfo);*/
     /**
@@ -29,12 +30,12 @@ $(function () {
             var item=entry.task;
             listDomStr+=item?'<li class="'+(entry.status=='Working'?'active':'')+'">' +
                 '<div class="entry-hd">' +
-                '<span class="index">'+entry.id+'</span>' +
+                '<span class="index">'+entry.name+'</span>' +
                /* '<span class="close-btn">&times;</span>' +*/
                 '</div>' +
                 '<div class="entry-bd">' +
                 '<div class="info">' +
-                '<p>任务：'+item.id+'</p>' +
+                '<p>任务：'+item.code+'<span class="status '+(item.status=='Working'?'active':'')+'">'+item.statusLabel+'</span></p>' +
                 '<p>姓名：'+item.username+'</p>' +
                 '<p>性别：'+item.genderLabel+'</p>' +
                 '<p>年龄：'+item.age+'</p>' +
@@ -47,19 +48,19 @@ $(function () {
                 '<div class="progress">' +
                 '<span class="label">进度</span> <span class="time">'+(utils.secondFormat(item.secondamt-item.seconduse))+'</span>' +
                 '<div class="line">' +
-                '<div  style="width: '+((item.quantityuse/item.quantityamt)*100)+'%"></div>' +
+                '<div  style="width: '+((item.seconduse/item.secondamt)*100)+'%"></div>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
                 '<div class="handle">' +
                 '<div class="handle-btn start-btn '+(entry.status=='Working'?'active':'')+'" onclick="setTaskStatus(\''+i+'\')"> <i class="icon"></i> </div>' +
-                '<div class="handle-btn call-btn '+(item.calling=='Y'?'active':'')+'" onclick="callNurse(\''+i+'\')"> <i class="icon"></i> </div>' +
+                '<div class="handle-btn call-btn '+(item.calling=='Y'?'active':'cm-disabled')+'" onclick="callNurse(\''+i+'\')"> <i class="icon"></i> </div>' +
                 '<span class="status">'+entry.statusLabel+'</span>' +
                 '</div> </div> </li>'
                 :
             '<li class="">' +
             '<div class="entry-hd">' +
-            '<span class="index">'+entry.id+'</span>' +
+            '<span class="index">'+entry.name+'</span>' +
             /* '<span class="close-btn">&times;</span>' +*/
             '</div>' +
             '<div class="entry-bd">' +
@@ -82,7 +83,7 @@ $(function () {
             '</div>' +
             '</div>' +
             '<div class="handle">' +
-            '<div class="handle-btn start-btn cm-disabled"> <i class="icon"></i> </div>' +
+            '<div class="handle-btn start-btn" onclick="setTaskStatus(\''+i+'\')"> <i class="icon"></i> </div>' +
             '<div class="handle-btn call-btn cm-disabled"> <i class="icon"></i> </div>' +
             '<span class="status">'+entry.statusLabel+'</span>' +
             '</div> </div> </li>';
