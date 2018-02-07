@@ -30,12 +30,12 @@ $(function () {
             var item=entry.task;
             listDomStr+=item?'<li class="'+(entry.status=='Working'?'active':'')+'">' +
                 '<div class="entry-hd">' +
-                '<span class="index">'+entry.id+'</span>' +
+                '<span class="index">'+entry.name+'</span>' +
                /* '<span class="close-btn">&times;</span>' +*/
                 '</div>' +
                 '<div class="entry-bd">' +
                 '<div class="info">' +
-                '<p>任务：'+item.id+'<span class="status '+(item.status=='Working'?'active':'')+'">'+item.statusLabel+'</span></p>' +
+                '<p>任务：'+item.code+'<span class="status '+(item.status=='Working'?'active':'')+'">'+item.statusLabel+'</span></p>' +
                 '<p>姓名：'+item.username+'</p>' +
                 '<p>性别：'+item.genderLabel+'</p>' +
                 '<p>年龄：'+item.age+'</p>' +
@@ -60,7 +60,7 @@ $(function () {
                 :
             '<li class="">' +
             '<div class="entry-hd">' +
-            '<span class="index">'+entry.id+'</span>' +
+            '<span class="index">'+entry.name+'</span>' +
             /* '<span class="close-btn">&times;</span>' +*/
             '</div>' +
             '<div class="entry-bd">' +
