@@ -41,7 +41,7 @@ $(function () {
     }
 
     /*数据接口定义*/
-    var basicUrl='http://www.insoho.cn:8080';
+    var basicUrl='http://sandbox.insoho.cn:8080';
     window.api={
         //登录
         login:function (data,callback) {
@@ -76,6 +76,12 @@ $(function () {
         //新增任务
         addTask:function (data,callback) {
             sendRequest(basicUrl+'/fhwhs/task/add','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
+        //临时测试
+        test:function (data,callback) {
+            sendRequest('http://api.only.我爱你/iou/domain/login','POST',data,function (resp) {
                 callback&&callback(resp);
             });
         },

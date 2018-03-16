@@ -27,4 +27,21 @@ $(function () {
     $('.submit_btn').click(function () {
         login();
     });
+
+    console.log(233);
+    //临时测试
+    api.test({
+        timestamp:utils.genTimestamp(),
+       /* phone:'13700000000',*/
+        domain:'a.only.我爱你',
+        password:'e10adc3949ba59abbe56e057f20f883e'
+    },function (resp) {
+        if(resp.status=='success'){
+            fb.setOptions({type:'complete',text:'登录成功'});
+            utils.setCookie('userInfo',JSON.stringify(resp.message),7);
+            window.location.href='index.html';
+        }else{
+            fb.setOptions({type:'warn',text:resp.message});
+        }
+    })
 })

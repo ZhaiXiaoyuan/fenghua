@@ -141,6 +141,7 @@ body {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .3s;
   transition: all .3s;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -196,6 +197,19 @@ body {
 }
 .no-data-tips.active {
   display: block;
+}
+.cm-btn {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.cm-btn:active {
+  -webkit-transform: scale(0.95, 0.95);
+          transform: scale(0.95, 0.95);
 }
 /*复用图标*/
 .home-icon {
@@ -312,6 +326,42 @@ body {
   width: 271px;
   height: 100px;
   background-size: cover;
+}
+.index-page .header .calling-list {
+  position: absolute;
+  padding-left: 290px;
+  padding-right: 20%;
+  width: 100%;
+  height: 50%;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  bottom: 0px;
+}
+.index-page .header .calling-list .title {
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #999;
+}
+.index-page .header .calling-list .list-wrap {
+  overflow-x: scroll;
+  height: 100%;
+  padding-top: 5px;
+}
+.index-page .header .calling-list ul {
+  white-space: nowrap;
+}
+.index-page .header .calling-list ul li {
+  margin: 0px 5px;
+  display: inline-block;
+}
+.index-page .header .calling-list ul li a {
+  padding: 5px 10px;
+  color: #56ca98;
+  font-size: 16px;
+  border: 1px solid #56ca98;
+  border-radius: 3px;
 }
 .index-page .left-nav {
   position: fixed;
@@ -555,6 +605,40 @@ body {
 }
 .index-page .entry-panel .entry-list li.active .entry-bd .handle .status {
   background: #56ca98;
+}
+@keyframes calling-ani {
+  0% {
+    background: rgba(255, 137, 137, 0.1);
+  }
+  50% {
+    background: #ff8989;
+  }
+  55% {
+    background: #ff8989;
+  }
+  100% {
+    background: rgba(255, 137, 137, 0.1);
+  }
+}
+@-webkit-keyframes calling-ani {
+  /*Safari and Chrome*/
+  0% {
+    background: rgba(255, 137, 137, 0.1);
+  }
+  50% {
+    background: #ff8989;
+  }
+  55% {
+    background: #ff8989;
+  }
+  100% {
+    background: rgba(255, 137, 137, 0.1);
+  }
+}
+.index-page .entry-panel .entry-list li.calling {
+  animation: calling-ani 1.2s infinite;
+  -webkit-animation: calling-ani 1.2s infinite;
+  /* Safari 和 Chrome */
 }
 @media screen and (max-width: 1366px) {
   .index-page .entry-panel .entry-list li {

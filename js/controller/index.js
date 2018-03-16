@@ -21,14 +21,30 @@ $(function () {
    }
 
     /**
+     * 渲染设备呼叫列表
+     */
+    var $callingList=$('.calling-list ul');
+    function renderCallingList(list) {
+        var listDomStr='';
+        $.each(list,function (i,item) {
+            listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
+        });
+        $callingList.html(listDomStr);
+    }
+
+    /**
      * 渲染设备列表（附带任务信息）
      */
     var $entryList=$('.entry-list');
     function renderEntryList(list) {
         var listDomStr='';
+        var callingList=[];
         $.each(list,function (i,entry) {
             var item=entry.task;
-            listDomStr+=item?'<li class="'+(entry.status=='Working'?'active':'')+'">' +
+            if(item.calling=='Y'){
+                callingList.push(item);
+            }
+            listDomStr+=item?'<li class="'+(entry.status=='Working'?'active':'')+(item.calling=='Y'?' calling':'')+'" id="'+entry.id+'">' +
                 '<div class="entry-hd">' +
                 '<span class="index">'+entry.name+'</span>' +
                /* '<span class="close-btn">&times;</span>' +*/
@@ -58,7 +74,7 @@ $(function () {
                 '<span class="status">'+entry.statusLabel+'</span>' +
                 '</div> </div> </li>'
                 :
-            '<li class="">' +
+            '<li id="'+entry.id+'">' +
             '<div class="entry-hd">' +
             '<span class="index">'+entry.name+'</span>' +
             /* '<span class="close-btn">&times;</span>' +*/
@@ -89,6 +105,7 @@ $(function () {
             '</div> </div> </li>';
         });
         $entryList.html(listDomStr);
+        renderCallingList(callingList);
     }
 
     /**
@@ -286,9 +303,10 @@ $(function () {
     /**
      * 数据实时轮询
      */
-    setInterval(function () {
+    //临时测试
+   /* setInterval(function () {
         getTaskList();
         getDeviceList();
-    },1000);
+    },1000);*/
 
 })

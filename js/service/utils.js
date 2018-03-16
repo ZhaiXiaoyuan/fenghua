@@ -221,6 +221,24 @@
         var expDate = new Date();
             expDate.setDate(expDate.getDate() + expiredays);
             document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + expDate.toGMTString()) + ";path=/"
-        }
+        },
+        /*锚点*/
+        goAnchor:function (event,id,offset) {
+            offset=typeof offset==Number?offset:-100;
+            var targetEle=null;
+            if(event){
+                if(event.currentTarget){
+                    targetEle=$(event.currentTarget);
+                }else if(event.srcElement){
+                    targetEle=$(event.srcElement);
+                }
+                $('.nav_list >a >span').removeClass('active');
+                targetEle.find(">span").addClass('active');
+            }
+
+            $("body,html").animate({
+                scrollTop: $(id).offset().top+offset
+            })
+        },
     }
 })();
