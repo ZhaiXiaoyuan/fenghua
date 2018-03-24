@@ -28,7 +28,7 @@ $(function () {
         console.log('list:',list);
         var listDomStr='';
         $.each(list,function (i,item) {
-            listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
+            listDomStr+=item.name?'<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>':'';
         });
         $callingList.html(listDomStr);
     }
@@ -106,8 +106,8 @@ $(function () {
             '<span class="status">'+entry.statusLabel+'</span>' +
             '</div> </div> </li>';
         });
-        $entryList.html(listDomStr);
         renderCallingList(callingList);
+        $entryList.html(listDomStr);
     }
 
     /**
@@ -305,10 +305,9 @@ $(function () {
     /**
      * 数据实时轮询
      */
-    //临时测试
-   /* setInterval(function () {
+    setInterval(function () {
         getTaskList();
         getDeviceList();
-    },1000);*/
+    },1000);
 
 })
