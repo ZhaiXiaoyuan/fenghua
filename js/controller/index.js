@@ -25,6 +25,7 @@ $(function () {
      */
     var $callingList=$('.calling-list ul');
     function renderCallingList(list) {
+        console.log('list:',list);
         var listDomStr='';
         $.each(list,function (i,item) {
             listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
@@ -39,6 +40,7 @@ $(function () {
     function renderEntryList(list) {
         var listDomStr='';
         var callingList=[];
+        console.log('list0:',list);
         $.each(list,function (i,entry) {
             var item=entry.task;
             if(item.calling=='Y'){
