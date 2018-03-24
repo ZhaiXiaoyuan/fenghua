@@ -27,7 +27,7 @@ $(function () {
     function renderCallingList(list) {
         var listDomStr='';
         $.each(list,function (i,item) {
-            listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
+            listDomStr+=item.name?'<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>':'';
         });
         $callingList.html(listDomStr);
     }
@@ -104,8 +104,8 @@ $(function () {
             '<span class="status">'+entry.statusLabel+'</span>' +
             '</div> </div> </li>';
         });
-        $entryList.html(listDomStr);
         renderCallingList(callingList);
+        $entryList.html(listDomStr);
     }
 
     /**
