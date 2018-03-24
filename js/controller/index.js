@@ -25,10 +25,9 @@ $(function () {
      */
     var $callingList=$('.calling-list ul');
     function renderCallingList(list) {
-        console.log('list:',list);
         var listDomStr='';
         $.each(list,function (i,item) {
-            listDomStr+=item.name?'<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>':'';
+            listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
         });
         $callingList.html(listDomStr);
     }
@@ -44,7 +43,7 @@ $(function () {
         $.each(list,function (i,entry) {
             var item=entry.task;
             if(item.calling=='Y'){
-                callingList.push(item);
+                callingList.push(entry);
             }
             listDomStr+=item?'<li class="'+(entry.status=='Working'?'active':'')+(item.calling=='Y'?' calling':'')+'" id="'+entry.id+'">' +
                 '<div class="entry-hd">' +
