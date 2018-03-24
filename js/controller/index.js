@@ -303,10 +303,9 @@ $(function () {
     /**
      * 数据实时轮询
      */
-    //临时测试
-   /* setInterval(function () {
+    setInterval(function () {
         getTaskList();
         getDeviceList();
-    },1000);*/
+    },1000);
 
 })
