@@ -7,6 +7,10 @@ $(function () {
         window.location.href='login.html';
         return;
     }
+
+    /**/
+    var counter=0;
+
    /* console.log("userInfo:",userInfo);*/
     /**
      *渲染等待队列列表
@@ -26,6 +30,9 @@ $(function () {
     var $callingList=$('.calling-list ul');
     function renderCallingList(list) {
         var listDomStr='';
+        if(list.length>0&&(counter%5)==0){
+            speckText(list[0].name+'正在呼叫');
+        }
         $.each(list,function (i,item) {
             listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
         });
@@ -39,7 +46,6 @@ $(function () {
     function renderEntryList(list) {
         var listDomStr='';
         var callingList=[];
-        console.log('list0:',list);
         $.each(list,function (i,entry) {
             var item=entry.task;
             if(item.calling=='Y'){
@@ -301,10 +307,21 @@ $(function () {
         addTaskModal();
     });
 
+
+    /*语音播报*/
+    function speckText(str){
+        var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
+        var n = new Audio(url);
+        n.src = url;
+        n.play();
+    }
+
+
     /**
      * 数据实时轮询
      */
     setInterval(function () {
+        counter++;
         getTaskList();
         getDeviceList();
     },1000);

@@ -79,12 +79,6 @@ $(function () {
                 callback&&callback(resp);
             });
         },
-        //临时测试
-        test:function (data,callback) {
-            sendRequest('http://api.only.我爱你/iou/domain/login','POST',data,function (resp) {
-                callback&&callback(resp);
-            });
-        },
         
     }
 })
