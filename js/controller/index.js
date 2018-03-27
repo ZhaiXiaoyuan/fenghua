@@ -310,10 +310,17 @@ $(function () {
 
     /*语音播报*/
     function speckText(str){
-        var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
-        var n = new Audio(url);
-        n.src = url;
-        n.play();
+        //临时测试
+        if(false&&navigator.onLine){
+            var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
+            var n = new Audio(url);
+            n.src = url;
+            n.play();
+        }else if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance(str);
+            msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Google 普通话（中国大陆）'; })[2];
+            speechSynthesis.speak(msg);
+        }
     }
 
 
@@ -325,5 +332,4 @@ $(function () {
         getTaskList();
         getDeviceList();
     },1000);
-
 })
