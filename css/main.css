@@ -141,6 +141,7 @@ body {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .3s;
   transition: all .3s;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -203,6 +204,7 @@ body {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+  -webkit-transition: all .3s;
   transition: all .3s;
 }
 .cm-btn:active {

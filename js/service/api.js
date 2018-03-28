@@ -79,12 +79,6 @@ $(function () {
                 callback&&callback(resp);
             });
         },
-        //临时测试
-        test:function (data,callback) {
-            sendRequest('/lyy/rest/group/distributor/homepageData','GET',data,function (resp) {
-                callback&&callback(resp);
-            });
-        },
         
     }
 })

@@ -7,6 +7,10 @@ $(function () {
         window.location.href='login.html';
         return;
     }
+
+    /**/
+    var counter=0;
+
    /* console.log("userInfo:",userInfo);*/
     /**
      *渲染等待队列列表
@@ -26,8 +30,11 @@ $(function () {
     var $callingList=$('.calling-list ul');
     function renderCallingList(list) {
         var listDomStr='';
+        if(list.length>0&&(counter%5)==0){
+            speckText(list[0].name+'正在呼叫');
+        }
         $.each(list,function (i,item) {
-            listDomStr+=item.name?'<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>':'';
+            listDomStr+='<li class="cm-btn"> <a onclick="utils.goAnchor(event,\'#'+item.id+'\')">'+item.name+'</a> </li>';
         });
         $callingList.html(listDomStr);
     }
@@ -42,7 +49,7 @@ $(function () {
         $.each(list,function (i,entry) {
             var item=entry.task;
             if(item.calling=='Y'){
-                callingList.push(item);
+                callingList.push(entry);
             }
             listDomStr+=item?'<li class="'+(entry.status=='Working'?'active':'')+(item.calling=='Y'?' calling':'')+'" id="'+entry.id+'">' +
                 '<div class="entry-hd">' +
@@ -300,12 +307,29 @@ $(function () {
         addTaskModal();
     });
 
+
+    /*语音播报*/
+    function speckText(str){
+        //临时测试
+        if(false&&navigator.onLine){
+            var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
+            var n = new Audio(url);
+            n.src = url;
+            n.play();
+        }else if ('speechSynthesis' in window) {
+            var msg = new SpeechSynthesisUtterance(str);
+            msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Google 普通话（中国大陆）'; })[2];
+            speechSynthesis.speak(msg);
+        }
+    }
+
+
     /**
      * 数据实时轮询
      */
     setInterval(function () {
+        counter++;
         getTaskList();
         getDeviceList();
     },1000);
-
 })
