@@ -81,7 +81,7 @@ $(function () {
         },
         //临时测试
         test:function (data,callback) {
-            sendRequest('http://api.only.我爱你/iou/domain/login','POST',data,function (resp) {
+            sendRequest('/lyy/rest/group/distributor/homepageData','GET',data,function (resp) {
                 callback&&callback(resp);
             });
         },
