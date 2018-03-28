@@ -310,8 +310,7 @@ $(function () {
 
     /*语音播报*/
     function speckText(str){
-        //临时测试
-        if(false&&navigator.onLine){
+        if(navigator.onLine){
             var url = "http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&text=" + encodeURI(str);        // baidu
             var n = new Audio(url);
             n.src = url;
