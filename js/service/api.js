@@ -79,6 +79,12 @@ $(function () {
                 callback&&callback(resp);
             });
         },
+        //管理员设置默认雾化量
+        setDefaultAmt:function (data,callback) {
+            sendRequest(basicUrl+'/fhwhs/admin/udsamt','POST',data,function (resp) {
+                callback&&callback(resp);
+            });
+        },
         
     }
 })

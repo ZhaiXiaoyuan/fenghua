@@ -310,6 +310,78 @@ body {
   text-align: center !important;
   /*word-break: keep-all;*/
 }
+/*弹窗公共样式*/
+.cm-modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  color: #1a1a1a;
+  line-height: normal;
+}
+.cm-modal .mask {
+  position: absolute;
+  z-index: 101;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.cm-modal .modal-content {
+  position: fixed;
+  z-index: 102;
+  left: 50%;
+  bottom: 50%;
+  min-width: 300px;
+  -webkit-transform: translate3d(-50%, 50%, 0);
+  transform: translate3d(-50%, 50%, 0);
+  background: #fff;
+  border-radius: 0.04px;
+}
+.cm-modal .modal-header {
+  text-align: center;
+}
+.cm-modal .modal-header .title {
+  display: block;
+  font-size: 016px;
+  color: #242529;
+  font-weight: bold;
+  padding: 15px;
+  text-align: center;
+}
+.cm-modal .modal-header {
+  padding: 15px 10px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.cm-modal .modal-body {
+  padding: 15px 10px;
+}
+.cm-modal .modal-footer {
+  border-top: 1px solid #e5e5e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cm-modal .modal-footer .handle-btn {
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: #56ca98;
+  font-size: 16px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-flex: 1;
+}
+.cm-modal .modal-footer .handle-btn + .handle-btn {
+  border-left: 1px solid #e5e5e5;
+}
 .index-page {
   background: #f1f8f8;
 }
@@ -686,7 +758,7 @@ body {
   box-shadow: 0px 4px 20px rgba(86, 202, 152, 0.3);
 }
 .index-page .add-modal .modal-body {
-  padding: 30px 50px;
+  padding: 30px 40px;
 }
 .index-page .add-modal .modal-body .input-row {
   height: 44px;
@@ -703,12 +775,18 @@ body {
 .index-page .add-modal .modal-body .input-row input {
   margin-left: 5px;
   height: 100%;
-  width: 320px;
+  width: 300px;
   text-align: center;
   font-size: 16px;
   border: none;
   border-bottom: 1px solid #e5e5e5;
   outline: none;
+}
+.index-page .add-modal .modal-body .input-row .row-btn {
+  padding: 5px 10px;
+  font-size: 14px;
+  background: #56ca98;
+  color: #fff;
 }
 .index-page .add-modal .modal-body .input-row + .input-row {
   margin-top: 15px;
@@ -734,4 +812,16 @@ body {
 }
 .index-page .add-modal .modal-footer .cancel-btn {
   border: none;
+}
+.index-page .set-num-modal .modal-content {
+  width: 350px;
+}
+.index-page .set-num-modal .modal-body {
+  padding: 40px 30px;
+}
+.index-page .set-num-modal .modal-body input {
+  width: 100%;
+  height: 44px;
+  padding: 0px 20px;
+  border: 1px solid #ccc;
 }

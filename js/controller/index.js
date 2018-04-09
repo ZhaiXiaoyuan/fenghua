@@ -220,7 +220,7 @@ $(function () {
             '<div class="input-row"> <span class="field">身份证</span> <input type="text" id="idno" placeholder="请输入身份证" maxlength="18">' +
             '</div> <div class="input-row"> <span class="field">处方</span> <input type="text" id="prescription" placeholder="请输入处方" maxlength="128"> </div>' +
             '<div class="input-row"> <span class="field">雾化量</span> <input type="text" id="quantityamt" placeholder="请输入雾化量" maxlength="10"> </div>' +
-            '<div class="input-row"> <span class="field">雾化总时间</span> <input type="text" id="secondamt" placeholder="请输入雾化总时间" maxlength="10"> </div>' +
+            '<div class="input-row"> <span class="field">雾化总时间</span> <input type="text" id="secondamt" placeholder="请输入雾化总时间" maxlength="10"><span class="cm-btn row-btn set-default-second-btn">设置默认值</span></div>' +
             '</div>' +
             '<div class="modal-footer">' +
             '<div class="handle-btn ok-btn">确定</div> <div class="handle-btn cancel-btn">取消</div> </div>' +
@@ -230,6 +230,10 @@ $(function () {
         $html.addClass('no-scroll');
         $body.addClass('no-scroll');
 
+        /**/
+        if(userInfo&&userInfo.defaultsecondamt){
+            $('#secondamt').val(userInfo.defaultsecondamt);
+        }
 
         function submit() {
             var params={
@@ -290,6 +294,16 @@ $(function () {
         }
         /*绑定事件*/
         //
+        $modal.find('.set-default-second-btn').click(function () {
+            setNumModal({
+                callback:function (data) {
+                    userInfo.defaultsecondamt=data;
+                    utils.setCookie('userInfo',JSON.stringify(userInfo),7);
+                    $('#secondamt').val(data)
+                }
+            });
+        });
+        //
         $modal.click(function (e) {
           e.stopPropagation()
         });
@@ -307,6 +321,77 @@ $(function () {
         addTaskModal();
     });
 
+    /**
+     * 派币弹窗
+     */
+    function  setNumModal(options) {
+        var $html=$('html');
+        var $body=$('body');
+        var $modal=$('<div class="cm-modal set-num-modal">' +
+            '<div class="mask"></div>' +
+            '<div class="modal-content">' +
+            '<div class="modal-header">设置雾化总时间默认值</div>'+
+            '<div class="modal-body">' +
+                '<input type="text" name="num" placeholder="请输入数值">'+
+            '</div>' +
+            '<div class="modal-footer">' +
+            '<div class="cm-btn handle-btn cancel-btn">取消</div> <div class="cm-btn handle-btn ok-btn">确定</div>' +
+            '</div>' +
+            '</div> </div>');
+        var $mask=$modal.find('.mask');
+        $body.append($modal);
+
+        //自动聚焦
+        var $input=$('#coin-input');
+        $input.click(function(e){
+            $(this).focus();
+        });
+        $input.eq(0).click();
+
+        /*方法定义*/
+        //
+        function close() {
+            $modal.remove();
+        }
+        //
+        function ok() {
+            var time=$modal.find('[name=num]').val();
+            if(!utils.regex.pInt.test(time)){
+                utils.operationFeedback({type:'warn',text:'雾化总时间有误，'+utils.regex.pIntAlert});
+                return;
+            }
+            var params={
+                timestamp:utils.genTimestamp(),
+                number:userInfo.mobilephone,
+                defaultsecondamt:time
+            }
+            //
+            var fb=utils.operationFeedback({text:'设置中...'});
+            api.setDefaultAmt(params,function (resp) {
+                if(resp.status=='success'){
+                    fb.setOptions({type:'complete',text:'设置成功'});
+                    options&&options.callback&&options.callback(time);
+                    close();
+                }else{
+                    fb.setOptions({type:'warn',text:resp.message});
+                }
+            })
+        }
+
+        /*方法绑定*/
+        $modal.click(function (e) {
+            e.stopPropagation();
+        });
+        $mask.click(function (e) {
+            close();
+        });
+        $modal.find('.cancel-btn').click(function (e) {
+            close();
+        });
+        $modal.find('.ok-btn').click(function (e) {
+            ok();
+        })
+    }
 
     /*语音播报*/
     function speckText(str){
